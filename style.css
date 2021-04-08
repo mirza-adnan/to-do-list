@@ -24,10 +24,25 @@ header {
   display: flex;
   width: 100%;
   align-items: center;
-  padding: 15px 3%;
+  padding: 15px;
   font-family: "Sansita Swashed", sans-serif;
   background-color: var(--red);
   color: #fff4e3;
+}
+
+.nav-btn {
+  width: 82px;
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: var(--white);
+  margin: 8px;
 }
 
 .logo {
@@ -39,6 +54,7 @@ header {
 
 .logo h1 {
   font-size: 2.2rem;
+  line-height: 47px;
 }
 
 .logo img {
@@ -182,13 +198,3 @@ main {
   margin: 0px;
 }
 
-.hamburger {
-  cursor: pointer;
-}
-
-.line {
-  width: 30px;
-  height: 3px;
-  background-color: var(--black);
-  margin: 8px;
-}
