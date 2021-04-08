@@ -34,7 +34,22 @@
         </li>
       </ul>
     </nav>
-    <main></main>
+    <main>
+      <div class="nav-btn">
+        <span class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </span>
+      </div>
+    </main>
   </div>
+  <script>
+    const navButton = document.querySelector(".hamburger");
+    navButton.addEventListener("click", function() {
+      document.querySelector("nav").classList.toggle("nav-hide");
+      document.querySelector("main").classList.toggle("main-toggle-margin");
+    })
+  </script>
 </body>
 </html>
