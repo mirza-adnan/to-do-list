@@ -91,7 +91,7 @@ nav {
   transform: translateX(-300px);
 }
 
-nav ul {
+ul {
   list-style: none;
 }
 
@@ -273,12 +273,11 @@ main {
   padding: 3px 8px;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
-  width: 20%;
-  min-width: 152px;
+  width: 250px;
   margin: 5px 0px;
 }
 
-.task-buttons {
+.task-form-buttons {
   width: 50%;
   display: flex;
   justify-content:;
@@ -290,4 +289,51 @@ main {
   background-color: var(--red);
   color: var(--white);
   margin-right: 10px;
+}
+
+.task {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px;
+  background-color: var(--gray);
+  border-radius: 20px;
+  margin: 10px 0px;
+}
+
+.box-name {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 100%;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.checkbox:hover {
+  background-color: var(--black);
+}
+
+.task-buttons {
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.task-button {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.checked {
+  background-color: var(--red);
 }

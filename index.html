@@ -50,6 +50,17 @@
         </div>
         <div class="tasks-section">
           <ul class="tasks">
+            <li class="task">
+              <div class="box-name">
+                <img class="checkbox" src="img/circle.svg" alt="">
+                <p class="task-name">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, sed?</p>
+              </div>
+              <p class="task-date">No date</p>
+              <div class="task-buttons">
+                <img class="task-button" src="./img/edit.svg" alt="edit">
+                <img class="task-button" src="./img/delete.svg" alt="">
+              </div>
+            </li>
           </ul>
           <hr>
           <div class="add-task">
@@ -60,10 +71,10 @@
           </div>
           <div class="task-form">
             <div class="task-inputs">
-              <input class="task-name-input text-input" type="text">
+              <input class="task-name-input text-input" type="text" minlength="1" maxlength="70">
               <input class="task-date-input" type="date" name="task-date">
             </div>
-            <div class="task-buttons">
+            <div class="task-form-buttons">
               <button class="task-add button">Add Task</button>
               <button class="task-cancel button">Cancel</button>
             </div>
