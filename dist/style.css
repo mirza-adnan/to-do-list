@@ -54,9 +54,12 @@ header {
 }
 
 nav {
-  position: absolute;
-  min-height: calc(100vh - 94px);
+  position: fixed;
+  top: 94px;
+  left: 0px;
+  height: 100%;
   width: 300px;
+  overflow: hidden;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   background-color: var(--gray);
@@ -64,6 +67,12 @@ nav {
   flex-grow: 1;
   padding: 20px;
   user-select: none;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+.nav-hide {
+  transform: translateX(-300px);
 }
 
 nav ul {
@@ -165,4 +174,21 @@ nav ul {
 main {
   flex-grow: 1;
   background-color: var(--white);
+  margin-left: 300px;
+  transition: all 0.5s ease;
+}
+
+.main-toggle-margin {
+  margin: 0px;
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: var(--black);
+  margin: 8px;
 }
