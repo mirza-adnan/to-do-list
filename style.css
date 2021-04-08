@@ -48,10 +48,15 @@ header {
 #content {
   min-height: calc(100vh - 94px);
   display: flex;
+  overflow: hidden;
+  background-color: var(--white);
+  position: relative;
 }
 
 nav {
-  max-width: 300px;
+  position: absolute;
+  min-height: calc(100vh - 94px);
+  width: 300px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   background-color: var(--gray);
@@ -67,7 +72,8 @@ nav ul {
 
 .project {
   font-size: 1.1rem;
-  display: block;
+  display: flex;
+  align-items: center;
   margin: 10px 0px;
   cursor: pointer;
   padding: 8px;
@@ -76,6 +82,12 @@ nav ul {
 
 .project:hover {
   background-color: #ccc;
+}
+
+.project img {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
 }
 
 .new-project-btn {
