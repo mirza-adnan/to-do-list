@@ -117,6 +117,7 @@ nav ul {
 
 .new-project-btn {
   font-size: 1.1rem;
+  font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -145,14 +146,17 @@ nav ul {
   font-weight: 600;
 }
 
-.project-name-input {
-  width: 100%;
+.text-input {
   border: 1px solid lightgray;
   border-radius: 5px;
   outline: none;
   padding: 3px 8px;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
+}
+
+.project-name-input {
+  width: 100%;
 }
 
 .project-name-input:focus, .project-name-input:hover {
@@ -219,6 +223,7 @@ main {
   border-radius: 5px;
   margin: 5px 10px 0px 10px;
   transition: background-color 0.2s ease-in-out;
+  display:;
 }
 
 .add-task:hover {
@@ -248,4 +253,41 @@ main {
 .add-task-btn span {
   margin-right: 10px;
   padding-top: 2px;
+}
+
+.task-form {
+  display: none;
+  margin: 10px 0px;
+}
+
+.task-name-input {
+  width: 40%;
+  min-width: 250px;
+  margin: 5px 0px;
+}
+
+.task-date-input {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  outline: none;
+  padding: 3px 8px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  width: 20%;
+  min-width: 152px;
+  margin: 5px 0px;
+}
+
+.task-buttons {
+  width: 50%;
+  display: flex;
+  justify-content:;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.task-add {
+  background-color: var(--red);
+  color: var(--white);
+  margin-right: 10px;
 }

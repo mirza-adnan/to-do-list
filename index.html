@@ -32,15 +32,16 @@
       <h1 class="projects-text">Projects</h1>
       <ul class="new-projects">
         <li class=project><img src="./img/folder.svg" alt=""> To-Do List</li>
-        <li class="new-project-btn"><span>New Project</span><img class="icon-add" src="img/plus.svg" alt="plus icon"></li>
-        <li class="project-input">
-          <input type="text" class="project-name-input">
-          <div class="buttons">
-            <button class="add-btn button">Add</button>
-            <button class="cancel-btn button">Cancel</button>
-          </div>
-        </li>
       </ul>
+      <div class="new-project-btn"><span>New Project</span><img class="icon-add" src="img/plus.svg" alt="plus icon"></div>
+      <div class="project-input">
+        <input type="text" class="project-name-input text-input">
+        <div class="buttons">
+          <button class="add-btn button">Add</button>
+          <button class="cancel-btn button">Cancel</button>
+        </div>
+      </div>
+
     </nav>
     <main>
       <div class="main-content">
@@ -48,13 +49,24 @@
           <h2>Inbox</h2>
         </div>
         <div class="tasks-section">
-          <ul class="tasks"></ul>
+          <ul class="tasks">
+          </ul>
           <hr>
           <div class="add-task">
             <button class="add-task-btn">
               <span><img class="icon-add" src="img/plus.svg" alt="plus sign"></span>
               <p>Add task</p>
             </button>
+          </div>
+          <div class="task-form">
+            <div class="task-inputs">
+              <input class="task-name-input text-input" type="text">
+              <input class="task-date-input" type="date" name="task-date">
+            </div>
+            <div class="task-buttons">
+              <button class="task-add button">Add Task</button>
+              <button class="task-cancel button">Cancel</button>
+            </div>
           </div>
         </div>
       </div>
