@@ -31,7 +31,7 @@ header {
 }
 
 .nav-btn {
-  width: 82px;
+  margin-right: 50px;
 }
 
 .hamburger {
@@ -84,7 +84,7 @@ nav {
   padding: 20px;
   user-select: none;
   z-index: 1;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
 }
 
 .nav-hide {
@@ -134,11 +134,10 @@ nav ul {
   transform: rotate(90deg);
 }
 
-.new-project-btn img {
-  width: 15px;
-  border-radius: 50px;
+.icon-add {
+  height: 13px;
+  width: 13px;
   transition: all 0.5s ease;
-  display: inline-block;
 }
 
 .active {
@@ -191,10 +190,62 @@ main {
   flex-grow: 1;
   background-color: var(--white);
   margin-left: 300px;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
 .main-toggle-margin {
   margin: 0px;
 }
 
+.main-content {
+  max-width: 1000px;
+  height: 100%;
+  padding: 20px;
+  flex-grow: 1;
+  font-family: "Poppins", sans-serif;
+}
+
+.project-name-display {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.add-task {
+  padding: 8px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px 10px 0px 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-task:hover {
+  background-color: var(--gray);
+}
+
+.add-task:hover .add-task-btn{
+  color: var(--red);
+}
+
+.add-task-btn {
+  text-align: left;
+  background-color: transparent;
+  color: gray;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.add-task-btn span {
+  margin-right: 10px;
+  padding-top: 2px;
+}

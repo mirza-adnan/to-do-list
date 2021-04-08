@@ -31,7 +31,8 @@
       </ul>
       <h1 class="projects-text">Projects</h1>
       <ul class="new-projects">
-        <li class="new-project-btn"><span>New Project</span><img src="img/plus.svg" alt="plus icon"></li>
+        <li class=project><img src="./img/folder.svg" alt=""> To-Do List</li>
+        <li class="new-project-btn"><span>New Project</span><img class="icon-add" src="img/plus.svg" alt="plus icon"></li>
         <li class="project-input">
           <input type="text" class="project-name-input">
           <div class="buttons">
@@ -42,6 +43,21 @@
       </ul>
     </nav>
     <main>
+      <div class="main-content">
+        <div class="project-name-display">
+          <h2>Inbox</h2>
+        </div>
+        <div class="tasks-section">
+          <ul class="tasks"></ul>
+          <hr>
+          <div class="add-task">
+            <button class="add-task-btn">
+              <span><img class="icon-add" src="img/plus.svg" alt="plus sign"></span>
+              <p>Add task</p>
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
   <script>
