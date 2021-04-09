@@ -22,36 +22,42 @@ const dom = (function() {
     const newProjectButton = getNewProjectButton();
     const cancelProjectButton = document.querySelector(".cancel-project-btn");
     const addProjectButton = document.querySelector(".add-project-btn");
-    newProjectButton.addEventListener("click", openProjectForm);
-    cancelProjectButton.addEventListener("click",cancelProject);
-  }
-
-  function openProjectForm() {
-    toggleNewProjectButton();
-    toggleProjectForm();
+    newProjectButton.addEventListener("click", toggleProjectForm);
+    cancelProjectButton.addEventListener("click", cancelProject);
+    addProjectButton.addEventListener("click", addProject);
   }
 
   function cancelProject() {
-    const projectNameInput = document.querySelector(".project-name-input");
-    projectNameInput.value = "";
-    toggleNewProjectButton();
+    clearProjectInput();
     toggleProjectForm();
   }
 
   function addProject() {
     const projectNameInput = document.querySelector(".project-name-input");
     const projectName = projectNameInput.value;
-
+    const project = new Project(projectName);
+    app.addProject(project);
+    renderProjects();
+    toggleProjectForm();
+    clearProjectInput();
   }
 
-  function toggleNewProjectButton() {
-    const newProjectButton = getNewProjectButton();
-    newProjectButton.classList.toggle("display-none");
+  function renderProjects() {
+    const newProjectsList = document.querySelector(".new-projects");
+    app.projects.forEach(project => {
+      newProjectsList.appendChild(project.element);
+    })
   }
 
   function toggleProjectForm() {
+    const newProjectButton = getNewProjectButton();
+    newProjectButton.classList.toggle("display-none");
     const projectForm = getProjectForm();
     projectForm.classList.toggle("display-none");
+  }
+
+  function clearProjectInput() {
+    document.querySelector(".project-name-input").value = "";
   }
 
   return {
