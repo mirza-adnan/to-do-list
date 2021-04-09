@@ -16,7 +16,7 @@
 }
 
 body {
-  min-height: 100vh;
+  min-height: calc(100vh - 94px);
   flex-direction: column;
 }
 
@@ -28,6 +28,10 @@ header {
   font-family: "Sansita Swashed", sans-serif;
   background-color: var(--red);
   color: #fff4e3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
 }
 
 .nav-btn {
@@ -67,6 +71,7 @@ header {
   overflow: hidden;
   background-color: var(--white);
   position: relative;
+  margin-top: 94px;
 }
 
 nav {
@@ -107,6 +112,17 @@ ul {
 
 .project:hover {
   background-color: #ccc;
+}
+
+.new-project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new-project-name{
+  display: flex;
+  align-items: center;
 }
 
 .project img {
@@ -198,6 +214,7 @@ main {
   font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .main-toggle-margin {
@@ -306,6 +323,11 @@ main {
 .box-name {
   display: flex;
   align-items: center;
+  width: 70%;
+}
+
+.task-name {
+  padding: 0px 5px;
 }
 
 .checkbox {
@@ -319,6 +341,11 @@ main {
 
 .checkbox:hover {
   background-color: var(--black);
+}
+
+.task-date {
+  display: flex;
+  align-items: center;
 }
 
 .task-buttons {
