@@ -16,7 +16,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"toggleNav\": () => (/* binding */ toggleNav)\n/* harmony export */ });\nfunction toggleNav() {\r\n  const navButton = document.querySelector(\".hamburger\");\r\n    navButton.addEventListener(\"click\", function() {\r\n      document.querySelector(\"nav\").classList.toggle(\"nav-hide\");\r\n      document.querySelector(\"main\").classList.toggle(\"main-toggle-margin\");\r\n    })\r\n}\r\n\r\n\n\n//# sourceURL=webpack://to-do-list/./src/dom.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"dom\": () => (/* binding */ dom)\n/* harmony export */ });\n/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects.js */ \"./src/projects.js\");\n\r\n\r\nconst dom = (function() {\r\n  function toggleNav() {\r\n    const navButton = document.querySelector(\".hamburger\");\r\n      navButton.addEventListener(\"click\", function() {\r\n        document.querySelector(\"nav\").classList.toggle(\"nav-hide\");\r\n        document.querySelector(\"main\").classList.toggle(\"main-toggle-margin\");\r\n      })\r\n  }\r\n\r\n  function getProjectForm() {\r\n    return document.querySelector(\".project-form\");\r\n  }\r\n\r\n  function getNewProjectButton() {\r\n    return document.querySelector(\".new-project-btn\");\r\n  }\r\n\r\n  function newProjectButtons() {\r\n    const newProjectButton = getNewProjectButton();\r\n    const cancelProjectButton = document.querySelector(\".project-cancel-btn\");\r\n    newProjectButton.addEventListener(\"click\", openProjectForm);\r\n    cancelProjectButton.addEventListener(\"click\",cancelProject);\r\n  }\r\n\r\n  function openProjectForm() {\r\n    toggleNewProjectButton();\r\n    toggleProjectForm();\r\n  }\r\n\r\n  function cancelProject() {\r\n    const projectNameInput = document.querySelector(\".project-name-input\");\r\n    projectNameInput.value = \"\";\r\n    toggleNewProjectButton();\r\n    toggleProjectForm();\r\n  }\r\n\r\n  function toggleNewProjectButton() {\r\n    const newProjectButton = getNewProjectButton();\r\n    newProjectButton.classList.toggle(\"display-none\");\r\n  }\r\n\r\n  function toggleProjectForm() {\r\n    const projectForm = getProjectForm();\r\n    projectForm.classList.toggle(\"display-none\");\r\n  }\r\n\r\n  return {\r\n    toggleNav,\r\n    newProjectButtons,\r\n  }\r\n})()\r\n \r\n\r\n\n\n//# sourceURL=webpack://to-do-list/./src/dom.js?");
 
 /***/ }),
 
@@ -26,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom.js */ \"./src/dom.js\");\n\r\n(0,_dom_js__WEBPACK_IMPORTED_MODULE_0__.toggleNav)();\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom.js */ \"./src/dom.js\");\n\r\n_dom_js__WEBPACK_IMPORTED_MODULE_0__.dom.toggleNav();\r\n_dom_js__WEBPACK_IMPORTED_MODULE_0__.dom.newProjectButtons();\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/projects.js":
+/*!*************************!*\
+  !*** ./src/projects.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Project {\r\n  constructor(name) {\r\n    this.name = name;\r\n    this.tasks = [];\r\n    this.addTask = function(task) {\r\n      this.tasks.push(task);\r\n    }\r\n    this.makeElement = function() {\r\n      const li = document.createElement(\"li\");\r\n      li.classList.add(\"project\", \"new-project\");\r\n      const div = document.createElement(\"div\");\r\n      div.classList.add(\"new-project-name\");\r\n      const folderIcon = document.createElement(\"img\");\r\n      folderIcon.src = \"./img/folder.svg\";\r\n      const projectName = document.createElement(\"p\");\r\n      projectName.textContent = this.name;\r\n      div.appendChild(folderIcon);\r\n      div.appendChild(projectName);\r\n      const deleteButton = document.createElement(\"img\");\r\n      deleteButton.src = \"./img/delete.svg\";\r\n      li.appendChild(div);\r\n      li.appendChild(deleteButton);\r\n      \r\n      return li;\r\n    }\r\n    this.element = this.makeElement();\r\n  }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Project);\n\n//# sourceURL=webpack://to-do-list/./src/projects.js?");
 
 /***/ })
 
