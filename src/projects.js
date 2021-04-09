@@ -2,6 +2,9 @@ class Project {
   constructor(name) {
     this.name = name;
     this.tasks = [];
+    this.addTask = function(task) {
+      this.tasks.push(task);
+    }
     this.makeElement = function() {
       const li = document.createElement("li");
       li.classList.add("project", "new-project");

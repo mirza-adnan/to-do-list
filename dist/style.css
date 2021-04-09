@@ -131,10 +131,6 @@ ul {
   margin-right: 10px;
 }
 
-.project-input {
-  display: none;
-}
-
 .new-project-btn {
   font-size: 1.1rem;
   font-weight: 600;
@@ -164,6 +160,10 @@ ul {
 .active {
   background-color: #ccc;
   font-weight: 600;
+}
+
+.display-none {
+  display: none;
 }
 
 .text-input {
@@ -233,7 +233,7 @@ main {
   font-family: "Poppins", sans-serif;
 }
 
-.project-name-display {
+.project-name-list {
   width: 100%;
   margin-bottom: 10px;
 }

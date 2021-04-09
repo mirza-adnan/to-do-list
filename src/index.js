@@ -1,2 +1,3 @@
-import {toggleNav} from "./dom.js";
-toggleNav();
+import {dom} from "./dom.js";
+dom.toggleNav();
+dom.newProjectButtons();

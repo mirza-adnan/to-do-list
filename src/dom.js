@@ -1,9 +1,56 @@
-function toggleNav() {
-  const navButton = document.querySelector(".hamburger");
-    navButton.addEventListener("click", function() {
-      document.querySelector("nav").classList.toggle("nav-hide");
-      document.querySelector("main").classList.toggle("main-toggle-margin");
-    })
-}
+import Project from "./projects.js";
 
-export {toggleNav,}
+const dom = (function() {
+  function toggleNav() {
+    const navButton = document.querySelector(".hamburger");
+      navButton.addEventListener("click", function() {
+        document.querySelector("nav").classList.toggle("nav-hide");
+        document.querySelector("main").classList.toggle("main-toggle-margin");
+      })
+  }
+
+  function getProjectForm() {
+    return document.querySelector(".project-form");
+  }
+
+  function getNewProjectButton() {
+    return document.querySelector(".new-project-btn");
+  }
+
+  function newProjectButtons() {
+    const newProjectButton = getNewProjectButton();
+    const cancelProjectButton = document.querySelector(".project-cancel-btn");
+    newProjectButton.addEventListener("click", openProjectForm);
+    cancelProjectButton.addEventListener("click",cancelProject);
+  }
+
+  function openProjectForm() {
+    toggleNewProjectButton();
+    toggleProjectForm();
+  }
+
+  function cancelProject() {
+    const projectNameInput = document.querySelector(".project-name-input");
+    projectNameInput.value = "";
+    toggleNewProjectButton();
+    toggleProjectForm();
+  }
+
+  function toggleNewProjectButton() {
+    const newProjectButton = getNewProjectButton();
+    newProjectButton.classList.toggle("display-none");
+  }
+
+  function toggleProjectForm() {
+    const projectForm = getProjectForm();
+    projectForm.classList.toggle("display-none");
+  }
+
+  return {
+    toggleNav,
+    newProjectButtons,
+  }
+})()
+ 
+
+export {dom,}
