@@ -131,6 +131,10 @@ ul {
   margin-right: 10px;
 }
 
+.project-input {
+  display: none;
+}
+
 .new-project-btn {
   font-size: 1.1rem;
   font-weight: 600;
@@ -331,13 +335,13 @@ main {
   margin: 10px 0px;
 }
 
-.box-name {
+.task-wrapper {
   display: flex;
   align-items: center;
   width: 70%;
 }
 
-.task-name {
+.task-desc {
   padding: 0px 5px;
 }
 
