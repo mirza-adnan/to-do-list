@@ -1,4 +1,5 @@
 import Project from "./projects.js";
+import app from "./app";
 
 const dom = (function() {
   function toggleNav() {
@@ -19,7 +20,8 @@ const dom = (function() {
 
   function newProjectButtons() {
     const newProjectButton = getNewProjectButton();
-    const cancelProjectButton = document.querySelector(".project-cancel-btn");
+    const cancelProjectButton = document.querySelector(".cancel-project-btn");
+    const addProjectButton = document.querySelector(".add-project-btn");
     newProjectButton.addEventListener("click", openProjectForm);
     cancelProjectButton.addEventListener("click",cancelProject);
   }
@@ -34,6 +36,12 @@ const dom = (function() {
     projectNameInput.value = "";
     toggleNewProjectButton();
     toggleProjectForm();
+  }
+
+  function addProject() {
+    const projectNameInput = document.querySelector(".project-name-input");
+    const projectName = projectNameInput.value;
+
   }
 
   function toggleNewProjectButton() {
