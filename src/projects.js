@@ -5,6 +5,11 @@ class Project {
     this.addTask = function(task) {
       this.tasks.push(task);
     }
+    this.removeTask = function(task) {
+      this.tasks.forEach(task => {
+        this.tasks.splice(this.tasks.indexOf(task), 1);
+      })
+    }
     this.makeElement = function() {
       const li = document.createElement("li");
       li.classList.add("project", "new-project");

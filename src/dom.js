@@ -1,7 +1,14 @@
 import Project from "./projects.js";
 import app from "./app";
-
+import Default from "./defaultProjects.js";
 const dom = (function() {
+
+  function init() {
+    toggleNav();
+    newProjectButtons();
+    createDefaultProjects()
+  }
+
   function toggleNav() {
     const navButton = document.querySelector(".hamburger");
       navButton.addEventListener("click", function() {
@@ -49,6 +56,12 @@ const dom = (function() {
     })
   }
 
+  function createDefaultProjects() {
+    const inbox = new Default("Inbox", "inbox");
+    const today = new Default("Today", "today");
+    const thisWeek = new Default("This Week", "this-week");
+  }
+
   function toggleProjectForm() {
     const newProjectButton = getNewProjectButton();
     newProjectButton.classList.toggle("display-none");
@@ -61,8 +74,7 @@ const dom = (function() {
   }
 
   return {
-    toggleNav,
-    newProjectButtons,
+    init,
   }
 })()
  
