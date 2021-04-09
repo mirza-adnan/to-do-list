@@ -55,7 +55,7 @@
                 <img class="checkbox" src="img/circle.svg" alt="">
                 <p class="task-name">create a table for my parents and then get coffee</p>
               </div>
-              <p class="task-date">No date</p>
+              <p class="task-day">No date</p>
               <div class="task-buttons">
                 <img class="task-button" src="./img/edit.svg" alt="edit">
                 <img class="task-button" src="./img/delete.svg" alt="">
@@ -71,7 +71,17 @@
           <div class="task-form">
             <div class="task-inputs">
               <input class="task-name-input text-input" type="text" minlength="1" maxlength="50">
-              <input class="task-date-input" type="date" name="task-date">
+              <select class="select-day" name="days">
+                <option class="day-option" value="Someday">Someday</option>
+                <option value="Sunday" class="day-option">Sunday</option>
+                <option value="Monday" class="day-option">Monday</option>
+                <option value="Tuesday" class="day-option">Tuesday</option>
+                <option value="Wednesday" class="day-option">Wednesday</option>
+                <option value="Thursday" class="day-option">Thursday</option>
+                <option value="Friday" class="day-option">Friday</option>
+                <option value="Saturday" class="day-option">Saturday</option>
+              </select>
+              <!--<input class="task-date-input" type="date" name="task-date">-->
             </div>
             <div class="task-form-buttons">
               <button class="task-add button">Add Task</button>

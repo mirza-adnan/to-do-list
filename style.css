@@ -283,6 +283,17 @@ main {
   margin: 5px 0px;
 }
 
+.select-day {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  outline: none;
+  padding: 3px 8px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  width: 200px;
+  margin: 5px 0px;
+}
+
 .task-date-input {
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -341,11 +352,6 @@ main {
 
 .checkbox:hover {
   background-color: var(--black);
-}
-
-.task-date {
-  display: flex;
-  align-items: center;
 }
 
 .task-buttons {
