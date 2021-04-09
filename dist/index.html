@@ -31,11 +31,17 @@
       </ul>
       <h1 class="projects-text">Projects</h1>
       <ul class="new-projects">
-        <li class="project new-project"><div class="new-project-name"><img src="./img/folder.svg" alt=""> To-Do List</div><img class="delete-icon" src="./img/delete.svg" alt=""></li>
+        <li class="project new-project">
+          <div class="new-project-name">
+            <img src="./img/folder.svg" alt=""> 
+            <p>To-Do List</p>
+          </div>
+            <img class="delete-icon" src="./img/delete.svg" alt="">
+        </li>
       </ul>
       <div class="new-project-btn"><span>New Project</span><img class="icon-add" src="img/plus.svg" alt="plus icon"></div>
       <div class="project-input">
-        <input type="text" class="project-name-input text-input">
+        <input type="text" class="project-name-input text-input" minlength="1" maxlength="20">
         <div class="buttons">
           <button class="add-btn button">Add</button>
           <button class="cancel-btn button">Cancel</button>
@@ -51,13 +57,12 @@
         <div class="tasks-section">
           <ul class="tasks">
             <li class="task">
-              <div class="box-name">
+              <div class="task-wrapper">
                 <img class="checkbox" src="img/circle.svg" alt="">
-                <p class="task-name">create a table for my parents and then get coffee</p>
+                <p class="task-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, sequi.</p>
               </div>
               <p class="task-day">No date</p>
               <div class="task-buttons">
-                <img class="task-button" src="./img/edit.svg" alt="edit">
                 <img class="task-button" src="./img/delete.svg" alt="">
               </div>
             </li>
@@ -93,11 +98,6 @@
     </main>
   </div>
   <script>
-    const navButton = document.querySelector(".hamburger");
-    navButton.addEventListener("click", function() {
-      document.querySelector("nav").classList.toggle("nav-hide");
-      document.querySelector("main").classList.toggle("main-toggle-margin");
-    })
   </script>
 </body>
 </html>
