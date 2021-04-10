@@ -13,11 +13,12 @@ export default class App {
   }
 
   addProject(newProject) {
-    if (this.projects.includes(newProject)) {
-      alert("You cannot have two projects with the same name")
+    const sameProjectName = this.projects.some(project => newProject.getName === project.getName);
+    if (sameProjectName) {
+      alert("You cannot have two projects with the same name");
       return;
     }
-    this.projects.push(newProject)
+    this.projects.push(newProject);
   }
 
   removeProject(projectName) {
