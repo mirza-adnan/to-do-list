@@ -1,7 +1,10 @@
+import app from "./app.js";
+import Project from "./project.js"
+import Task from "./task.js";
 const dom = (function() {
-
   function init() {
     toggleNav();
+    renderDefaultProjects();
   }
 
   function toggleNav() {
@@ -10,6 +13,28 @@ const dom = (function() {
         document.querySelector("nav").classList.toggle("nav-hide");
         document.querySelector("main").classList.toggle("main-toggle-margin");
       })
+  }
+
+  function renderDefaultProjects() {
+    const defaultProjectsList = document.querySelector(".default-projects");
+    app.getProjects.forEach(project => {
+      if (project.isDefault) defaultProjectsList.appendChild(createDefaultProjects(project));
+    })
+  }
+
+
+  function createDefaultProjects(project) {
+    const li = document.createElement("li");
+    li.className = "project default"
+    if (project.getName === "Inbox") {
+      li.innerHTML = '<img src="./img/inbox.svg" alt=""> <span>Inbox</span>';
+    } else if (project.getName === "Today") {
+      li.innerHTML = '<img src="./img/today.svg" alt=""> <span>Today</span>';
+      console.log("here");
+    } else if (project.getName === "This Week") {
+      li.innerHTML = '<img src="./img/inbox.svg" alt=""> <span>This Week</span>';
+    }
+    return li;
   }
 
   function toggleProjectForm() {
