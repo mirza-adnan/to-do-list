@@ -1,5 +1,6 @@
 import Project from "./project.js";
-class App {
+import Storage from "./storage.js";
+export default class App {
   constructor() {
     this.projects = [];
     this.projects.push(new Project("Inbox", true));
@@ -27,7 +28,23 @@ class App {
     })
     this.projects.splice(this.projects.indexOf(projectToRemove), 1);
   }
+
+  set setProjects(projects) {
+    this.projects = projects;
+  }
 }
 
-const app = new App();
-export default app;
+const app = getCurrentApp();
+
+function getCurrentApp() {
+  let app;
+  if (!localStorage.getItem("app")) {
+    app = new App();
+    Storage.saveApp(app);
+  } else {
+    app = Storage.getApp();
+    app.setProjects = Storage.setProjects(app);
+  }
+  return app;
+}
+export {app};
