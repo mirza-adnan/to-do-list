@@ -33,6 +33,13 @@ export default class App {
   set setProjects(projects) {
     this.projects = projects;
   }
+
+  getProject(projectName) {
+    const project = this.projects.find(project => {
+      if (project.getName === projectName) return true;
+    })
+    return project;
+  }
 }
 
 const app = getCurrentApp();
@@ -44,7 +51,7 @@ function getCurrentApp() {
     Storage.saveApp(app);
   } else {
     app = Storage.getApp();
-    app.setProjects = Storage.setProjects(app);
+    app.setProjects = Storage.getProjects(app);
   }
   return app;
 }

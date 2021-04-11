@@ -9,7 +9,8 @@ function init() {
   toggleNav();
   renderDefaultProjects();
   renderNewProjects();
-  newProjectButtons();
+  projectFormButtons();
+  newProjectListeners();
 }
 
 function toggleNav() {
@@ -20,7 +21,7 @@ function toggleNav() {
   });
 }
 
-function newProjectButtons() {
+function projectFormButtons() {
   const projectForm = document.querySelector(".project-form");
   const projectNameInput = document.querySelector(".project-name-input");
   const newProjectButton = document.querySelector(".new-project-btn");
@@ -41,8 +42,7 @@ function newProjectButtons() {
     Storage.saveApp(app);
     toggleProjectForm();
     clearProjectInput();
-    removeNewProjects();
-    renderNewProjects();
+    reloadNewProjects();
   }
   
   function toggleProjectForm() {
@@ -60,6 +60,27 @@ function newProjectButtons() {
   }
 }
 
+function newProjectListeners() {
+  const deleteButton = document.querySelectorAll(".project-delete-icon");
+  const newProjects = document.querySelectorAll(".project");
+  deleteButton.forEach(button => {
+    button.addEventListener("click", deleteProject);
+  })
+
+  function deleteProject() {
+    const projectName = this.parentNode.querySelector("p");
+    app.removeProject(projectName);
+    Storage.saveApp(app);
+    reloadNewProjects();
+  }
+}
+
+function reloadNewProjects() {
+  removeNewProjects();
+  renderNewProjects();
+  newProjectListeners();
+}
+
 function renderNewProjects() {
   const newProjectsList = document.querySelector(".new-projects");
   app.projects.forEach(project => {
@@ -71,7 +92,7 @@ function renderNewProjects() {
           <img src="./img/folder.svg" alt=""> 
           <p>${project.name}</p>
         </div>
-        <img class="delete-icon" src="./img/delete.svg" alt="">`; 
+        <img class="project-delete-icon" src="./img/delete.svg" alt="">`; 
     newProjectsList.appendChild(li);
     }
   })

@@ -10,7 +10,7 @@ const Storage = (function() {
     return Object.assign(new App(), JSON.parse(localStorage.getItem("app")));
   }
 
-  function setProjects(appObject) {
+  function getProjects(appObject) {
     const projects = appObject.projects.map(project=> {
       return Object.assign(new Project(), project);
     })
@@ -20,7 +20,7 @@ const Storage = (function() {
   return {
     saveApp,
     getApp,
-    setProjects,
+    getProjects,
   }
 })()
 
