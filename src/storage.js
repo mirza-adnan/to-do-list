@@ -1,5 +1,6 @@
 import App from "./app.js";
 import Project from "./project.js"
+import Task from "./task.js";
 const Storage = (function() {
 
   function saveApp(appObject) {
@@ -14,13 +15,23 @@ const Storage = (function() {
     const projects = appObject.projects.map(project=> {
       return Object.assign(new Project(), project);
     })
-    return projects;
+    appObject.setProjects =  projects;
+  }
+
+  function getTasks(appObject) {
+    appObject.projects.forEach(project => {
+      const tasks = project.tasks.map(task => {
+        return Object.assign(new Task(), task);
+      })
+      project.setTasks = tasks;
+    })
   }
 
   return {
     saveApp,
     getApp,
     getProjects,
+    getTasks,
   }
 })()
 

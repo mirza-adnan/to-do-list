@@ -13,6 +13,10 @@ export default class Project {
     return this.tasks;
   }
 
+  set setTasks(tasks) {
+    this.tasks = tasks;
+  }
+
   addTask(newTask) {
     if (this.tasks.includes(newTask)) {
       alert("You cannot have two tasks with the same description");
@@ -28,5 +32,14 @@ export default class Project {
       }
     })
     this.tasks.splice(this.tasks.indexOf(taskToDelete), 1);
+  }
+
+  getTask(taskDesc) {
+    const task = this.tasks.find(task => {
+      if (task.getDesc === taskDesc) {
+        return true;
+      }
+    })
+    return task;
   }
 }

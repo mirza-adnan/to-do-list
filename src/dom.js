@@ -10,6 +10,7 @@ function init() {
   renderDefaultProjects();
   renderNewProjects();
   projectFormButtons();
+  taskFormButtons();
   newProjectListeners();
 }
 
@@ -62,9 +63,13 @@ function projectFormButtons() {
 
 function newProjectListeners() {
   const deleteButton = document.querySelectorAll(".project-delete-icon");
-  const newProjects = document.querySelectorAll(".project");
+  const projects = document.querySelectorAll(".project");
   deleteButton.forEach(button => {
     button.addEventListener("click", deleteProject);
+  })
+
+  projects.forEach(project => {
+    project.addEventListener("click", setActive);
   })
 
   function deleteProject() {
@@ -72,6 +77,26 @@ function newProjectListeners() {
     app.removeProject(projectName);
     Storage.saveApp(app);
     reloadNewProjects();
+  }
+
+  function setActive() {
+    this.classList.add("active");
+    projects.forEach(project => {
+      if (this != project) {
+        project.classList.remove("active");
+      }
+    })
+  }
+}
+
+function taskFormButtons() {
+  const addNewTaskButton = document.querySelector(".add-task");
+  const taskForm = document.querySelector(".task-form");
+  addNewTaskButton.addEventListener("click", toggleTaskForm);
+
+  function toggleTaskForm() {
+    addNewTaskButton.classList.toggle("display-none");
+    taskForm.classList.toggle("display-none");
   }
 }
 

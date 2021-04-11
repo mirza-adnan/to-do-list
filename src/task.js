@@ -8,4 +8,7 @@ export default class Task {
     return this.desc
   }
 
+  get date() {
+    return this.date;
+  }
 }

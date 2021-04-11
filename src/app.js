@@ -51,7 +51,8 @@ function getCurrentApp() {
     Storage.saveApp(app);
   } else {
     app = Storage.getApp();
-    app.setProjects = Storage.getProjects(app);
+    Storage.getProjects(app);
+    Storage.getTasks(app);
   }
   return app;
 }
