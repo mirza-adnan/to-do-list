@@ -173,21 +173,22 @@ ul {
   padding: 3px 8px;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
+  line-height: 25px;
 }
 
 .project-name-input {
   width: 100%;
+  margin: 20px 0px;
 }
 
 .project-name-input:focus, .project-name-input:hover {
   box-shadow: 0 1px 3px rgba(32,33,36,.28);
 }
 
-.buttons {
+.project-form-buttons {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
 }
 
 .button {
@@ -279,7 +280,7 @@ main {
   margin: 10px 0px;
 }
 
-.task-name-input {
+.task-desc-input {
   width: 40%;
   min-width: 250px;
   margin: 5px 0px;
@@ -305,6 +306,7 @@ main {
   font-family: "Poppins", sans-serif;
   width: 250px;
   margin: 5px 0px;
+  line-height: 23px;
 }
 
 .task-form-buttons {
@@ -340,6 +342,12 @@ main {
 
 .task-desc {
   padding: 0px 5px;
+}
+
+.task-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .checkbox {
