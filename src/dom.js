@@ -65,12 +65,23 @@ function projectFormButtons() {
 function newProjectListeners() {
   const deleteButton = document.querySelectorAll(".project-delete-icon");
   const projects = document.querySelectorAll(".project");
+  const addTask = document.querySelector(".add-task");
+  const projectTitle = document.querySelector(".project-title");
   deleteButton.forEach(button => {
     button.addEventListener("click", deleteProject);
   })
 
   projects.forEach(project => {
-    project.addEventListener("click", setActive);
+    project.addEventListener("click", function() {
+      setActive(project);
+      reloadTasks()
+      projectTitle.textContent = project.querySelector("p").textContent;
+      if (project.getAttribute("id") === "today" || project.getAttribute("id") === "this-week") {
+        addTask.style.display = "none";
+      } else {
+        addTask.style.display = "block";
+      }
+    });
   })
 
   function deleteProject() {
@@ -80,14 +91,13 @@ function newProjectListeners() {
     reloadNewProjects();
   }
 
-  function setActive() {
-    this.classList.add("active");
+  function setActive(element) {
+    element.classList.add("active");
     projects.forEach(project => {
-      if (this != project) {
+      if (element != project) {
         project.classList.remove("active");
       }
     })
-    reloadTasks();
   }
 }
 
