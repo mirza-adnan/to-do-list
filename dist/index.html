@@ -41,8 +41,8 @@
       </ul>
       <div class="new-project-btn"><span>New Project</span><img class="icon-add" src="img/plus.svg" alt="plus icon"></div>
       <div class="project-form display-none">
-        <input type="text" class="project-name-input text-input" minlength="1" maxlength="20">
-        <div class="buttons">
+        <input type="text" class="project-name-input text-input" maxlength="20" placeholder="Project name">
+        <div class="project-form-buttons">
           <button class="add-project-btn button">Add</button>
           <button class="cancel-project-btn button">Cancel</button>
         </div>
@@ -56,16 +56,17 @@
         </div>
         <div class="tasks-section">
           <ul class="tasks">
-            <li class="task">
+            <!--<li class="task">
               <div class="task-wrapper">
                 <img class="checkbox" src="img/circle.svg" alt="">
                 <p class="task-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, sequi.</p>
               </div>
-              <p class="task-day">No date</p>
+              <p class="task-date">No date</p>
               <div class="task-buttons">
                 <img class="task-button" src="./img/delete.svg" alt="">
               </div>
-            </li>
+            </li>-->
+          </ul>
           <hr>
           <div class="add-task">
             <button class="add-task-btn">
@@ -75,7 +76,7 @@
           </div>
           <div class="task-form display-none">
             <div class="task-inputs">
-              <input class="task-name-input text-input" type="text" minlength="1" maxlength="50">
+              <input class="task-desc-input text-input" type="text" maxlength="50" placeholder="Task Description">
               <!--<select class="select-day" name="days">
                 <option class="day-option" value="Someday">Someday</option>
                 <option value="Sunday" class="day-option">Sunday</option>

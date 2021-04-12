@@ -9,6 +9,7 @@ function init() {
   toggleNav();
   renderDefaultProjects();
   renderNewProjects();
+  renderTasks();
   projectFormButtons();
   taskFormButtons();
   newProjectListeners();
@@ -86,24 +87,78 @@ function newProjectListeners() {
         project.classList.remove("active");
       }
     })
+    reloadTasks();
   }
 }
 
 function taskFormButtons() {
   const addNewTaskButton = document.querySelector(".add-task");
   const taskForm = document.querySelector(".task-form");
+  const taskInput = document.querySelector(".task-desc-input");
+  const taskDateInput = document.querySelector(".task-date-input");
+  const addButton = document.querySelector(".task-add");
+  const cancelButton = document.querySelector(".task-cancel");
   addNewTaskButton.addEventListener("click", toggleTaskForm);
-
+  cancelButton.addEventListener("click", toggleTaskForm);
+  addButton.addEventListener("click", addTask);
+  
   function toggleTaskForm() {
     addNewTaskButton.classList.toggle("display-none");
     taskForm.classList.toggle("display-none");
+    taskInput.value = "";
+    taskDateInput.value = "";
   }
+
+  function addTask() {
+    const taskDesc = taskInput.value;
+    if (taskDesc === "") {
+      alert("You have to provide a task description");
+      return;
+    }
+    const activeProjectName = document.querySelector(".active").querySelector("p").textContent;
+    const project = app.getProject(activeProjectName);
+    const taskDate = taskDateInput.value;
+    const task = new Task(taskDesc, taskDate);
+    project.addTask(task);
+    toggleTaskForm();
+    Storage.saveApp(app);
+    reloadTasks();
+  }
+
 }
 
 function reloadNewProjects() {
   removeNewProjects();
   renderNewProjects();
   newProjectListeners();
+}
+
+function reloadTasks() {
+  removeTasks();
+  renderTasks();
+}
+
+function renderTasks() {
+  const taskList  = document.querySelector(".tasks");
+  const currentProject = app.getProject(document.querySelector(".active").querySelector("p").textContent);
+  currentProject.tasks.forEach(task => {
+    const li = document.createElement("li");
+    li.className = "task";
+    li.innerHTML = `<div class="task-wrapper">
+    <img class="checkbox" src="img/circle.svg" alt="">
+    <p class="task-desc">${task.desc}</p>
+  </div>
+  <p class="task-date">${task.date}</p>
+  <div class="task-buttons">
+    <img class="task-button" src="./img/delete.svg" alt="">
+  </div>`
+    taskList.appendChild(li);
+  })
+}
+
+function removeTasks() {
+  const taskList = document.querySelector(".tasks");
+  taskList.textContent = "";
 }
 
 function renderNewProjects() {
@@ -124,11 +179,10 @@ function renderNewProjects() {
 }
 
 function removeNewProjects() {
-  const newProjects = document.querySelectorAll(".new-project");
-  newProjects.forEach(project => {
-    project.remove();
-  })
+  const newProjects = document.querySelector(".new-projects");
+  newProjects.textContent = "";
 }
+
 
 function renderDefaultProjects() {
   const defaultProjectsList = document.querySelector(".default-projects");
@@ -142,11 +196,15 @@ function createDefaultProjects(project) {
   const li = document.createElement("li");
   li.className = "project default";
   if (project.getName === "Inbox") {
-    li.innerHTML = '<img src="./img/inbox.svg" alt=""> <span>Inbox</span>';
+    li.setAttribute("id", "inbox")
+    li.classList.add("active");
+    li.innerHTML = '<img src="./img/inbox.svg" alt=""> <p>Inbox</p>';
   } else if (project.getName === "Today") {
-    li.innerHTML = '<img src="./img/today.svg" alt=""> <span>Today</span>';
+    li.setAttribute("id", "today")
+    li.innerHTML = '<img src="./img/today.svg" alt=""> <p>Today</p>';
   } else if (project.getName === "This Week") {
-    li.innerHTML = '<img src="./img/week.svg" alt=""> <span>This Week</span>';
+    li.setAttribute("id", "this-week")
+    li.innerHTML = '<img src="./img/week.svg" alt=""> <p>This Week</p>';
   }
   return li;
 }

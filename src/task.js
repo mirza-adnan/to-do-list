@@ -1,14 +1,14 @@
 export default class Task {
-  constructor(desc, day) {
+  constructor(desc, date) {
     this.desc = desc;
     this.date = date;
   }
 
-  get getDesc() {
+  getDesc() {
     return this.desc
   }
 
-  get date() {
+  date() {
     return this.date;
   }
 }

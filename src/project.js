@@ -13,12 +13,13 @@ export default class Project {
     return this.tasks;
   }
 
-  set setTasks(tasks) {
+  setTasks(tasks) {
     this.tasks = tasks;
   }
 
   addTask(newTask) {
-    if (this.tasks.includes(newTask)) {
+    const sameTaskDesc = this.tasks.some(task => task.desc === newTask.desc);
+    if (sameTaskDesc) {
       alert("You cannot have two tasks with the same description");
       return;
     }

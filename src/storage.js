@@ -15,7 +15,7 @@ const Storage = (function() {
     const projects = appObject.projects.map(project=> {
       return Object.assign(new Project(), project);
     })
-    appObject.setProjects =  projects;
+    appObject.setProjects(projects);
   }
 
   function getTasks(appObject) {
@@ -23,7 +23,7 @@ const Storage = (function() {
       const tasks = project.tasks.map(task => {
         return Object.assign(new Task(), task);
       })
-      project.setTasks = tasks;
+      project.setTasks(tasks);
     })
   }
 

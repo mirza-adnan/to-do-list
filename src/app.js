@@ -30,7 +30,7 @@ export default class App {
     this.projects.splice(this.projects.indexOf(projectToRemove), 1);
   }
 
-  set setProjects(projects) {
+  setProjects(projects) {
     this.projects = projects;
   }
 
@@ -43,7 +43,6 @@ export default class App {
 }
 
 const app = getCurrentApp();
-
 function getCurrentApp() {
   let app;
   if (!localStorage.getItem("app")) {
