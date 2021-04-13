@@ -6,7 +6,7 @@
   --red: #f85959;
   --blue: #43dde6;
   --white: #f0f0f0;
-  --gray: #dddddd;
+  --gray: #ddd;
 }
 
 * {
@@ -92,8 +92,12 @@ nav {
   transition: all 0.5s ease-in-out;
 }
 
-.nav-hide {
+.nav-adjust {
   transform: translateX(-300px);
+}
+
+.main-adjust {
+  margin: 0px;
 }
 
 ul {
@@ -118,6 +122,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .new-project-name{
@@ -129,6 +134,14 @@ ul {
   height: 20px;
   width: 20px;
   margin-right: 10px;
+}
+
+.project-delete-icon {
+  display: none;
+}
+
+.project:hover .project-delete-icon {
+  display: block;
 }
 
 .new-project-btn {
@@ -152,8 +165,8 @@ ul {
 }
 
 .icon-add {
-  height: 13px;
-  width: 13px;
+  height: 15px;
+  width: 15px;
   transition: all 0.5s ease;
 }
 
@@ -222,10 +235,6 @@ main {
   overflow: hidden;
 }
 
-.main-toggle-margin {
-  margin: 0px;
-}
-
 .main-content {
   max-width: 1000px;
   height: 100%;
@@ -234,9 +243,25 @@ main {
   font-family: "Poppins", sans-serif;
 }
 
-.project-name-list {
+.main-header {
   width: 100%;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clear-completed {
+  width: auto;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgba(32,33,36,.28);
+  border-radius: 5px;
+  background-color: var(--red);
+  color: var(--white);
 }
 
 .add-task {
@@ -334,6 +359,14 @@ main {
   margin: 10px 0px;
 }
 
+.completed {
+  opacity: 0.5;
+}
+
+.completed .checkbox {
+  background-color: darkgray;
+}
+
 .task-wrapper {
   display: flex;
   align-items: center;
@@ -360,7 +393,7 @@ main {
 }
 
 .checkbox:hover {
-  background-color: var(--black);
+  background-color: darkgray;
 }
 
 .task-buttons {
@@ -378,4 +411,22 @@ main {
 
 .checked {
   background-color: var(--red);
+}
+
+@media screen and (max-width: 700px) {
+  main {
+    margin-left: 0px;
+  }
+  
+  .main-adjust {
+    margin-left: 0px;
+  }
+
+  nav {
+    transform: translateX(-300px);
+  }
+
+  .nav-adjust {
+    transform: translateX(0px);
+  }
 }
