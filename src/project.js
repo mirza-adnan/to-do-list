@@ -28,7 +28,7 @@ export default class Project {
 
   removeTask(taskName) {
     const taskToDelete = this.tasks.find(task => {
-      if (task.getDesc === taskName) {
+      if (task.desc === taskName) {
         return true;
       }
     })
@@ -37,10 +37,15 @@ export default class Project {
 
   getTask(taskDesc) {
     const task = this.tasks.find(task => {
-      if (task.getDesc === taskDesc) {
+      if (task.desc === taskDesc) {
         return true;
       }
     })
     return task;
+  }
+
+  getCompletedTasks() {
+    const completed = this.tasks.filter(task => task.isCompleted);
+    return completed
   }
 }

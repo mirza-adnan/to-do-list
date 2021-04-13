@@ -4,8 +4,8 @@ export default class App {
   constructor() {
     this.projects = [];
     this.projects.push(new Project("Inbox", true));
-    this.projects.push(new Project("Today", true));
-    this.projects.push(new Project("This Week", true));
+/*     this.projects.push(new Project("Today", true));
+    this.projects.push(new Project("This Week", true));  */
   }
 
   get getProjects() {
