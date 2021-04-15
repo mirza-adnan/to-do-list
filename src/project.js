@@ -18,34 +18,34 @@ export default class Project {
   }
 
   addTask(newTask) {
-    const sameTaskDesc = this.tasks.some(task => task.desc === newTask.desc);
+    const sameTaskDesc = this.tasks.some((task) => task.desc === newTask.desc);
     if (sameTaskDesc) {
-      alert("You cannot have two tasks with the same description");
+      alert('You cannot have two tasks with the same description');
       return;
     }
-    this.tasks.push(newTask)
+    this.tasks.push(newTask);
   }
 
   removeTask(taskName) {
-    const taskToDelete = this.tasks.find(task => {
+    const taskToDelete = this.tasks.find((task) => {
       if (task.desc === taskName) {
         return true;
       }
-    })
+    });
     this.tasks.splice(this.tasks.indexOf(taskToDelete), 1);
   }
 
   getTask(taskDesc) {
-    const task = this.tasks.find(task => {
+    const task = this.tasks.find((task) => {
       if (task.desc === taskDesc) {
         return true;
       }
-    })
+    });
     return task;
   }
 
   getCompletedTasks() {
-    const completed = this.tasks.filter(task => task.isCompleted);
-    return completed
+    const completed = this.tasks.filter((task) => task.isCompleted);
+    return completed;
   }
 }

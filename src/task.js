@@ -3,15 +3,15 @@ export default class Task {
     this.desc = desc;
     this.isCompleted = false;
     if (date) {
-      date = date.split("-");
+      date = date.split('-');
       this.date = `${date[1]}-${date[2]}-${date[0]}`;
     } else {
-      this.date = "No date";
+      this.date = 'No date';
     }
   }
 
   getDesc() {
-    return this.desc
+    return this.desc;
   }
 
   date() {

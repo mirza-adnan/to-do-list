@@ -1,2 +1,2 @@
-import init from "./dom.js";
+import init from './dom.js';
 init();
