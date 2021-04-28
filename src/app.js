@@ -1,9 +1,10 @@
-import Project from './project.js';
-import Storage from './storage.js';
+import Project from "./project";
+import Storage from "./storage";
+
 export default class App {
   constructor() {
     this.projects = [];
-    this.projects.push(new Project('Inbox', true));
+    this.projects.push(new Project("Inbox", true));
     /*     this.projects.push(new Project("Today", true));
     this.projects.push(new Project("This Week", true));  */
   }
@@ -14,21 +15,17 @@ export default class App {
 
   addProject(newProject) {
     const sameProjectName = this.projects.some(
-      (project) => newProject.getName === project.getName
+      (project) => newProject.getName === project.getName,
     );
     if (sameProjectName) {
-      alert('You cannot have two projects with the same name');
+      alert("You cannot have two projects with the same name");
       return;
     }
     this.projects.push(newProject);
   }
 
   removeProject(projectName) {
-    const projectToRemove = this.projects.find((project) => {
-      if (project.getName === projectName) {
-        return true;
-      }
-    });
+    const projectToRemove = this.projects.find((project) => project.getName === projectName);
     this.projects.splice(this.projects.indexOf(projectToRemove), 1);
   }
 
@@ -37,17 +34,14 @@ export default class App {
   }
 
   getProject(projectName) {
-    const project = this.projects.find((project) => {
-      if (project.getName === projectName) return true;
-    });
+    const project = this.projects.find((project) => project.getName === projectName);
     return project;
   }
 }
 
-const app = getCurrentApp();
 function getCurrentApp() {
   let app;
-  if (!localStorage.getItem('app')) {
+  if (!localStorage.getItem("app")) {
     app = new App();
     Storage.saveApp(app);
   } else {
@@ -57,4 +51,6 @@ function getCurrentApp() {
   }
   return app;
 }
+
+const app = getCurrentApp();
 export { app };

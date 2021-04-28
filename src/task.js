@@ -3,10 +3,10 @@ export default class Task {
     this.desc = desc;
     this.isCompleted = false;
     if (date) {
-      date = date.split('-');
-      this.date = `${date[1]}-${date[2]}-${date[0]}`;
+      const formattedDate = date.split("-");
+      this.date = `${formattedDate[1]}-${formattedDate[2]}-${formattedDate[0]}`;
     } else {
-      this.date = 'No date';
+      this.date = "No date";
     }
   }
 

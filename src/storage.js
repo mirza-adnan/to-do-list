@@ -1,27 +1,24 @@
-import App from './app.js';
-import Project from './project.js';
-import Task from './task.js';
+import App from "./app";
+import Project from "./project";
+import Task from "./task";
+
 const Storage = (function () {
   function saveApp(appObject) {
-    localStorage.setItem('app', JSON.stringify(appObject));
+    localStorage.setItem("app", JSON.stringify(appObject));
   }
 
   function getApp() {
-    return Object.assign(new App(), JSON.parse(localStorage.getItem('app')));
+    return Object.assign(new App(), JSON.parse(localStorage.getItem("app")));
   }
 
   function getProjects(appObject) {
-    const projects = appObject.projects.map((project) => {
-      return Object.assign(new Project(), project);
-    });
+    const projects = appObject.projects.map((project) => Object.assign(new Project(), project));
     appObject.setProjects(projects);
   }
 
   function getTasks(appObject) {
     appObject.projects.forEach((project) => {
-      const tasks = project.tasks.map((task) => {
-        return Object.assign(new Task(), task);
-      });
+      const tasks = project.tasks.map((task) => Object.assign(new Task(), task));
       project.setTasks(tasks);
     });
   }
@@ -32,6 +29,6 @@ const Storage = (function () {
     getProjects,
     getTasks,
   };
-})();
+}());
 
 export default Storage;
