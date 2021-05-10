@@ -11,6 +11,7 @@ A simple to-do list app which lets you create new projects and add tasks to resp
 ## Tools I used
 - Basic HTML, CSS, JS
 - Webpack
+- ESLint
 - Export Imports and JS classes
 
 ## Things I learned
