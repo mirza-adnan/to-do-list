@@ -1,3 +1,4 @@
+// handles everything related to tasks
 export default class Task {
   constructor(desc, date) {
     this.desc = desc;
