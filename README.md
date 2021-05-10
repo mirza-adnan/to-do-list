@@ -8,6 +8,11 @@ A simple to-do list app which lets you create new projects and add tasks to resp
 - The default project is "Inbox"
 - You can add as many tasks as you want under any of your projects  
 
+## Tools I used
+- Basic HTML, CSS, JS
+- Webpack
+- Export Imports and JS classes
+
 ## Things I learned
 - localStorage doesn't store object types. So you have to recreate the objects using Object.assign
 - Be more efficient with class names. I made a mess with classnames in this project
