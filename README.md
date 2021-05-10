@@ -12,7 +12,7 @@ A simple to-do list app which lets you create new projects and add tasks to resp
 - Basic HTML, CSS, JS
 - Webpack
 - ESLint
-- Export Imports and JS classes
+- Export Imports and JS classes  
 
 ## Things I learned
 - localStorage doesn't store object types. So you have to recreate the objects using Object.assign
